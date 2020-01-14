@@ -2,7 +2,7 @@ import graphene
 import links.schema
 
 
-class Query(links.schema.Querym, graphene.ObjectType):
+class Query(links.schema.Query, graphene.ObjectType):
     pass
 
 

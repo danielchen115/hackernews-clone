@@ -10,6 +10,10 @@ class LinkType(DjangoObjectType):
 
 class Query(graphene.ObjectType):
     links = graphene.List(LinkType)
+    link = graphene.Field(LinkType, link_id=graphene.String())
 
     def resolve_links(self, info, **kwargs):
         return Link.objects.all()
+
+    def resolve_link(self, info, link_id):
+        return Link.objects.get(pk=link_id)
